@@ -8,9 +8,13 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 
 # Load environment
-load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+from dotenv import load_dotenv
 
+# Load from .env (for local development)
+load_dotenv()
+
+# Use environment variable or Streamlit secret
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY")
 # Set Streamlit page
 st.set_page_config(page_title="Nutrition Assistant Chatbot", page_icon="🥗")
 st.title("🥗 Nutrition Assistant - Healthy Meals & Diet Planning")
@@ -133,3 +137,4 @@ if st.session_state.history:
         file_name="nutrition_chat_history.json",
         mime="application/json"
     )
+
