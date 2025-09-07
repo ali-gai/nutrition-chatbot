@@ -37,7 +37,7 @@ with st.sidebar:
     
     model_name = st.selectbox(
         "Groq Model",
-        ["deepseek-r1-distill-llama-70b", "gemma2-9b-it", "llama3-70b-8192"],
+        ["deepseek-r1-distill-llama-70b", "gemma2-9b-it", "qwen/qwen3-32b"],
         index=2
     )
     
@@ -137,4 +137,5 @@ if st.session_state.history:
         file_name="nutrition_chat_history.json",
         mime="application/json"
     )
+
 
